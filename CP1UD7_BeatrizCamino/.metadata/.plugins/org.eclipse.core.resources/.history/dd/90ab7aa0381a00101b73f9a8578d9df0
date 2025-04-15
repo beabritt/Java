@@ -1,0 +1,44 @@
+import java.util.*;
+
+public class MainConcesionario {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Hola, primero vamos a registrar los tres primeros coches del inventario.");
+		//En primer lugar instanciamos un objeto de cada tipo.
+		Coche cocheK = new CocheKm();
+		Coche cocheN = new CocheNuevo();
+		Coche cocheS = new CocheSegundaMano();
+		Scanner sc = new Scanner(System.in);
+		int option = 0;
+		
+		System.out.println("Por favor, elige el número del tipo de coche que quieres registrar primero.");
+		while (true) {
+			try { 
+				MenusConcesionario.menu1();
+				option = sc.nextInt();
+				sc.nextLine(); //limpiamos el buffer
+				switch(option) {
+					case 1:
+						cocheK.registrar(sc);
+						System.out.println(cocheK);
+						System.out.println("Pasa");
+						
+						break;
+					case 2:
+						System.out.println("Has introducido 2.");
+						break;
+					case 3:
+						System.out.println("Has introducido 3.");
+						break;
+				}
+			} catch (InputMismatchException e){
+	            System.out.println("Debes introducir uno de estos números.");
+	            sc.nextLine(); //limpiamos buffer despúes del error.
+			}
+		}
+		
+	}
+
+		
+}

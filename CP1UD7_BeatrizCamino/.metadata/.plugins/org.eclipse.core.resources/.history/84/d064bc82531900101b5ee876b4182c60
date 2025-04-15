@@ -1,0 +1,58 @@
+
+public abstract class Coche {
+	private String matricula;
+	private String color;
+	private String modelo;
+	private double precio;
+	private int kms;
+	static int numCochesStock;
+	
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	public int getKms() {
+		return kms;
+	}
+
+	public void setKms(int kms) {
+		this.kms = kms;
+	}
+
+	public static int getNumCochesStock() {
+		return numCochesStock;
+	}
+
+	public static void setNumCochesStock(int numCochesStock) {
+		Coche.numCochesStock = numCochesStock;
+	}
+	
+	public void setMatricula(String matricula){
+		this.matricula = matricula;
+	}
+	
+	public String getMatricula(){
+		return matricula;
+	}
+	
+}

@@ -1,0 +1,19 @@
+
+public class MainConcesionario {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Hola, primero vamos a registrar los tres primeros coches del inventario");
+		//En primer lugar instanciamos un objeto de cada tipo.
+		Coche cocheK = new CocheKm();
+		Coche cocheN = new CocheNuevo();
+		Coche cocheS = new CocheSegundaMano();
+		
+		
+
+	}
+
+	
+	
+	
+}

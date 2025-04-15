@@ -1,0 +1,24 @@
+
+public class MenusConcesionario {
+
+	
+	
+	static void menu1() {
+		System.out.println("1. Coche KM.0. \n2. Coche Nuevo. \n3. Coche Segundamano.");
+	}
+	//menú tras case1
+	static void menu2() {
+		System.out.println("Elige entre las dos opciones restantes, por favor.");
+		System.out.println("2. Coche Nuevo. \n3. Coche Segundamano.");
+	}
+	//menú tras case2
+	static void menu3() {
+		System.out.println("Elige entre las dos opciones restantes, por favor.");
+		System.out.println("1. Coche KM.0. \n3. Coche Segundamano.");
+	}
+	//menú tras case3
+	static void menu4() {
+		System.out.println("Elige entre las dos opciones restantes, por favor.");
+		System.out.println("1. Coche KM.0. \n2. Coche Nuevo.");
+	}
+}

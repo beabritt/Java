@@ -1,0 +1,7 @@
+
+public class MenusConcesionario {
+
+	static void menu1() {
+		System.out.println("1. Coche KM.0. \n 2. Coche Nuevo. \n 3. Coche Segundamano.");
+	}
+}

@@ -1,0 +1,13 @@
+
+public class MainConcesionario {
+
+	public static void main(String[] args) {
+		
+		//En primer lugar instanciamos un objeto de cada tipo.
+		Coche coche1 = new CocheKm();
+		Coche coche2 = new CocheNuevo();
+		Coche coche3 = new CocheSegundaMano();
+
+	}
+
+}

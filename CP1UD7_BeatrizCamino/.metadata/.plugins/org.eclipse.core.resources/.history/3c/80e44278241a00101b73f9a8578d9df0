@@ -1,0 +1,146 @@
+import java.util.*;
+
+public abstract class Coche {
+	
+	//atributos de la clase abstracta, más el atributo estático, que nos ayuda a que su valor se conserve.
+	private String matricula;
+	private String color;
+	private String modelo;
+	private double precio;
+	private int kms;
+	static int numCochesStock;
+	
+	//constructores superclase, sin parámetros y con parámetros.
+	
+	public Coche () {
+		numCochesStock++;
+	};
+	
+	public Coche (String matricula, String color, String modelo, double precio, int kms) {
+		this.matricula = matricula;
+		this.color = color;
+		this.modelo = modelo;
+		this.precio = precio;
+		this.kms = kms;
+		numCochesStock++;
+	};
+	
+	//matricula
+	
+	public void setMatricula(String matricula){
+		this.matricula = matricula;
+	}
+	
+	public String getMatricula(){
+		return matricula;
+	}
+	
+	//color
+	
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
+	//modelo
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	//precio
+	
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	//kms
+	
+	public int getKms() {
+		return kms;
+	}
+
+	public void setKms(int kms) {
+		this.kms = kms;
+	}
+
+	//numCochesStock - contador que irá sumando +1 con cada coche creado.
+	
+	public static int getNumCochesStock() {
+		return numCochesStock;
+	}
+
+	public static void setNumCochesStock(int numCochesStock) {
+		Coche.numCochesStock = numCochesStock;
+	}
+
+	//sobreescritura del método toString en superclase.
+	
+	public String toString() {
+		return "Matricula: " + matricula + ". Modelo: " + modelo + ".Color: " + color + ".Kilómetros: " + 
+				kms + ". Precio: " +  precio + ". ";
+	}
+	
+	public void registroCoche(Scanner sc) {
+        setMatricula(pedirCadenaNoVacia(sc, "Introduce la matrícula:"));
+        setModelo(pedirCadenaNoVacia(sc, "Introduce el modelo:"));
+        setColor(pedirCadenaNoVacia(sc, "Introduce el color:"));
+        setKms(pedirEntero(sc, "Introduce los kilómetros:"));
+        setPrecio(pedirDecimal(sc, "Introduce el precio:"));
+    }
+
+    protected String pedirCadenaNoVacia(Scanner sc, String mensaje) {
+        String entrada;
+        while (true) {
+            System.out.println(mensaje);
+            entrada = sc.nextLine();
+            if (entrada.isEmpty()) {
+                System.out.println("No has introducido ningún dato. Inténtalo de nuevo.");
+            } else {
+                return entrada;
+            }
+        }
+    }
+
+    protected int pedirEntero(Scanner sc, String mensaje) {
+        while (true) {
+            try {
+                System.out.println(mensaje);
+                int valor = sc.nextInt();
+                sc.nextLine(); // limpiar buffer
+                return valor;
+            } catch (InputMismatchException e) {
+                System.out.println("Debes introducir un valor numérico.");
+                sc.nextLine(); // limpiar buffer tras error
+            }
+        }
+    }
+
+    protected double pedirDecimal(Scanner sc, String mensaje) {
+        while (true) {
+            try {
+                System.out.println(mensaje);
+                double valor = sc.nextDouble();
+                sc.nextLine(); // limpiar buffer
+                return valor;
+            } catch (InputMismatchException e) {
+                System.out.println("Debes introducir un valor numérico.");
+                sc.nextLine(); // limpiar buffer tras error
+            }
+        }
+    }
+
+	//método abstracto que cada subclase deberá desarrollar.
+	public abstract void registrar();
+}

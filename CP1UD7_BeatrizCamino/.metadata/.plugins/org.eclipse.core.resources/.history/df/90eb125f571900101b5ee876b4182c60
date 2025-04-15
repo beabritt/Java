@@ -1,0 +1,34 @@
+
+public class CocheKm extends Coche {
+
+	//atributos específicos subclase
+	
+	private boolean alquilado;
+	
+	//constructores
+	
+	public CocheKm() {
+		super();
+	}
+	
+	public CocheKm (String matricula, String color, String modelo, double precio, int kms) {
+		super.setMatricula(matricula);
+		super.setColor(color);
+		super.setModelo(modelo);
+		super.setPrecio(precio);
+		super.setKms(kms);
+		alquilado = false;
+	}
+
+	public boolean getAlquilado() {
+		return alquilado;
+	}
+
+	public void setAlquilado(boolean alquilado) {
+		this.alquilado = alquilado;
+	}
+
+
+
+}
+

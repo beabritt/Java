@@ -1,0 +1,8 @@
+
+public abstract class Coche {
+	private String matricula;
+	private String color;
+	private String modelo;
+	private double precio;
+	private int kms;
+}
