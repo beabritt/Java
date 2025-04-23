@@ -12,6 +12,7 @@ public abstract class Coche {
 	
 	//constructores superclase, sin parámetros y con parámetros.
 	
+	//La variable estática se incrementará en 1 con cada objeto de la clase Coche creado.
 	public Coche () {
 		numCochesStock++;
 	};
@@ -75,7 +76,8 @@ public abstract class Coche {
 		this.kms = kms;
 	}
 
-	//numCochesStock - contador que irá sumando +1 con cada coche creado.
+	/*para acceder a la variable estática se necesita un getter público estático, es la única forma de acceder a estas variables,
+	 	puesto que no se copian en las subclases*/
 	
 	public static int getNumCochesStock() {
 		return numCochesStock;
@@ -88,7 +90,7 @@ public abstract class Coche {
 	//sobreescritura del método toString en superclase.
 	
 	public String toString() {
-		return "Matricula: " + matricula + ". Modelo: " + modelo + ".Color: " + color + ".Kilómetros: " + 
+		return "Matricula: " + matricula + ". Modelo: " + modelo + ". Color: " + color + ". Kilómetros: " + 
 				kms + ". Precio: " +  precio + ". ";
 	}
 	

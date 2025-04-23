@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-//extens permite que CocheKm gerede de Coche e implements permite integrar la interfaz Alquilable.
+//extends permite que CocheKm gerede de Coche e implements permite integrar la interfaz Alquilable.
 
 public class CocheKm extends Coche implements Alquilable {
 
@@ -46,9 +46,9 @@ public class CocheKm extends Coche implements Alquilable {
 	//color
 	
 	public String getColor() {
-		return getColor();
+		return super.getColor();
 	}
-
+	
 	public void setColor(String color) {
 		super.setColor(color);
 	}
@@ -56,7 +56,7 @@ public class CocheKm extends Coche implements Alquilable {
 	//modelo
 
 	public String getModelo() {
-		return super.getColor();
+		return super.getModelo();
 	}
 
 	public void setModelo(String modelo) {
@@ -94,12 +94,17 @@ public class CocheKm extends Coche implements Alquilable {
 		return super.toString() + "Estado: " + estado + ".";
 	}
 
-	//Este método sobreescrito proviene de la interfaz Alquilable
+	/*Este método sobreescrito proviene de la interfaz Alquilable. Aunque el coche se encuentre
+	 * 		alquilado, sigue siendo del concesionario, por lo que no decrementa el stock. */
 	@Override
 	public void alquilar() {
-		super.setNumCochesStock(numCochesStock--);
-		alquilado =  true;
-		System.out.println("El coche " + super.getModelo() + " se ha alquilado.");
+		if (alquilado) {
+			System.out.println("El coche ya se encuentra alquilado.");
+		}
+		else {
+			alquilado =  true;
+			System.out.println("El coche " + super.getModelo() + " se ha alquilado.");
+		}
 	}
 	
 	public void registroCoche(Scanner sc) {
@@ -110,7 +115,7 @@ public class CocheKm extends Coche implements Alquilable {
 
 	@Override
 	public void registrar(Scanner sc) {
-		System.out.println("Has elegido KM 0.");
+		System.out.println("Vamos a registrar el coche de kilómetro 0.");
 		registroCoche(sc);
 		System.out.println("Vehículo correctamente registrado. Estos son los datos:");
 		

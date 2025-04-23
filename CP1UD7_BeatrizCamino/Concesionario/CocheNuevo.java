@@ -57,7 +57,7 @@ public class CocheNuevo extends Coche implements Vendible {
 	//color
 	
 	public String getColor() {
-		return getColor();
+		return super.getColor();
 	}
 
 	public void setColor(String color) {
@@ -67,7 +67,7 @@ public class CocheNuevo extends Coche implements Vendible {
 	//modelo
 
 	public String getModelo() {
-		return super.getColor();
+		return super.getModelo();
 	}
 
 	public void setModelo(String modelo) {
@@ -105,13 +105,17 @@ public class CocheNuevo extends Coche implements Vendible {
 		return super.toString() + "Garantía: " + garantia +  ". Estado: " + estado + ".";
 	}
 
-	//Este método sobreescrito proviene de la interfaz Vendible
+	//Este método sobreescrito proviene de la interfaz Vendible. Produce un decremento en el stock de coches del concesionario.
 	@Override
 	public void vender() {
-		super.setNumCochesStock(numCochesStock--);
-		vendido =  true;
-		System.out.println("El coche " + super.getModelo() + " se ha vendido.");
-		
+		if (vendido) {
+			System.out.println("El coche ya ha sido vendido y no está disponible.");
+		}
+		else {
+			super.setNumCochesStock(--numCochesStock); //realiza el decremento en la variable y envía posteriormente el valor
+			vendido =  true;
+			System.out.println("El coche " + super.getModelo() + " se ha vendido.");
+		}
 	}
 
 	public void registroCoche(Scanner sc) {
