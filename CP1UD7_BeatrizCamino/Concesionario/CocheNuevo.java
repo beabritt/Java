@@ -1,4 +1,4 @@
-//extends permite que CocheKm gerede de Coche e implements permite integrar la interfaz Vendible.
+//extends permite que CocheKm herede de Coche e implements permite integrar la interfaz Vendible.
 
 import java.util.Scanner;
 
